@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quarks Example</title>
+  </head>
+  <body style="background-color: white; color: black">
+    <div
+      class="container"
+      style="display: flex; width: 100%; height: 90vh; justify-content: center; align-items: center;"
+    >
+      <main class="main">
+        <div class="head" style="padding-bottom: 1rem;">
+          <h1>QuarksJS Playground</h1>
+          <button id="start" type="button">Start</button>
+          <button id="stop" type="button">Stop</button>
+          <button id="tick" type="button">Single Step</button>
+          <button id="reload" type="button">Reload</button>
+        </div>
+
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <script src="/quarks/index.js"></script>
+        <script>
+          var quark = new QuarkAnimation({
+            id: "canvas",
+            bounds: { x: 600, y: 600 },
+            padding: 100
+          });
+
+          document
+            .getElementById("start")
+            .addEventListener("click", quark.start.bind(quark));
+          document
+            .getElementById("stop")
+            .addEventListener("click", quark.stop.bind(quark));
+          document.getElementById("tick").addEventListener("click", () => {
+            quark.tick();
+            quark.draw();
+          });
+          document.getElementById("reload").addEventListener("click", () => {
+            window.location.reload();
+          });
+
+          quark.start();
+        </script>
+      </main>
+    </div>
+  </body>
+</html>

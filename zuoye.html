@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>过多的作业</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet" deferred> 
+	<style type="text/css">
+		body, html, * {
+			padding: 0;
+			margin: 0;
+		}
+		html {
+			font-size: 18px;
+		}
+		@media (min-width: 768px) {
+			html {
+				font-size: calc(18px + 0.5vw);
+			}
+		}
+		body {
+			padding-top: 2rem;
+			font-family: 'Noto Sans SC', sans-serif;
+			background-color: #fafafa
+		}
+		.title, .subtitle {
+			text-align: center
+		}
+		.imgwrap {
+			-ms-align-self: stretch;
+			align-self: stretch;
+			min-height: 100%;
+			flex: 0 0 150px;
+		}
+		.img {
+			object-fit: cover;
+			width: 100%;
+			display: block;
+			height: 100%;
+		}
+		.contact {
+			margin: 2rem 0;
+			text-align: center;
+			color: #444;
+		}
+		.contact li {
+			list-style: none;			
+		}
+		.sections {
+			display: grid;
+			grid-gap: 0.5rem;
+			grid-template: auto / repeat(auto-fill, minmax(20rem, 1fr));
+			margin: 0 auto;
+			padding: 0.5rem;
+			max-width: 40.5rem;
+			width: 100%;
+		}
+		.section {
+			background: white;
+			box-shadow: 0 3px 15px -5px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.15);
+			border-radius: 3px;
+			overflow: hidden;
+			display: flex;
+			padding: 0;
+		}
+		.desc {
+			padding: 1rem;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+			color: #444
+		}
+		.name {
+			color: #000;
+		}
+		.text {
+			margin-bottom: 1rem;
+			max-width: 80%;
+		}
+		.fake {
+			text-decoration: line-through;
+			font-size: 0.8em;
+			color: red;
+		}
+		.original {
+			font-size: 1.2em;
+			color: green;
+		}
+		.prices {
+			background: #fafafa;
+			border-top: 1px solid #eee;
+			display: block;
+			margin: auto -1rem -1rem;
+			padding: 0.75rem 1rem;
+			width: calc(100% + 2rem);
+		}
+		.priceline {
+			font-size: 0.8em;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="hero">
+		<h1 class="title">明天的时尚</h1>
+		<h2 class="subtitle">只为你而且很便宜</h2>
+		<ul class="contact">
+			<li class="p1">北京和天津的衣服</li>
+			<li class="p2">每天都有新物品</li>
+		</ul>
+	</div>
+	<div class="sections">
+		<div class="section">
+			<div class="imgwrap">
+				<img class="img" src="china/shirt.jpg"></img>
+			</div>
+			<div class="desc">
+				<h3 class="name">很酷白色T恤</h3>
+				<p class="text">像你宝宝的屁股一样柔软</p>
+				<div class="prices">
+					<span class="fake">100元</span>
+					<span class="original">50元！</span>
+					<span class="priceline">只有现在！快买吧</span>
+				</div>
+			</div>
+		</div>	<div class="section">
+			<div class="imgwrap">
+				<img class="img" src="china/jacket.jpg"></img>
+			</div>
+			<div class="desc">
+				<h3 class="name">黑色的夹克</h3>
+				<p class="text">漆黑，很酷，会让所有女孩子都爱你</p>
+				<div class="prices">
+					<span class="fake">500元</span>
+					<span class="original">199元！</span>
+					<span class="priceline">买一个送你一个女朋友</span>
+				</div>
+			</div>
+		</div>	<div class="section">
+			<div class="imgwrap">
+				<img class="img" src="china/skirt.jpg"></img>
+			</div>
+			<div class="desc">
+				<h3 class="name">黄色裙子</h3>
+				<p class="text">每个人都需要一个，让你看起来很棒</p>
+				<div class="prices">
+					<span class="fake">80</span>
+					<span class="original">29元！</span>
+					<span class="priceline">买它或永远看起来不好</span>
+				</div>
+			</div>
+		</div>	<div class="section">
+			<div class="imgwrap">
+				<img class="img" src="china/jeans.jpg"></img>
+			</div>
+			<div class="desc">
+				<h3 class="name">破牛仔裤</h3>
+				<p class="text">不会让你保持温暖但是看起来很棒</p>
+				<div class="prices">
+					<span class="fake">360元</span>
+					<span class="original">299元！</span>
+					<span class="priceline">谁不想冻结？ 不是你</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

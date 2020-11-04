@@ -1,0 +1,239 @@
+<html>
+  <head>
+    <title>Solitaire</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+      <!-- Apple Stuff -->
+    <!--   <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+
+      <!-- Open Graph -->
+    <!--   <meta property="og:type" content="website">
+      <meta property="og:title" content="Klondike Solitaire">
+      <meta property="og:url" content="https://vaguelyserious.github.io/solitaire/">
+      <meta property="og:image" content="images/klondike-og.png">
+      <meta property="og:description" content="An open, light-weight Klondike Solitaire game"> -->
+
+      <!-- Twitter -->
+    <!--   <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:title" content="Klondike Solitaire">
+      <meta property="twitter:description" content="An open, light-weight Klondike Solitaire game">
+      <meta property="twitter:image:src" content="images/klondike-twitter.png"> -->
+
+      <!-- Favicons -->
+    <!--   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+      <link rel="manifest" href="manifest.json">
+      <link rel="mask-icon" href="safari-pinned-tab.svg" color="#e5501e">
+      <meta name="msapplication-config" content="browserconfig.xml">
+      <meta name="theme-color" content="#ffffff"> -->
+    <div class="gamewrap">
+
+      <!-- <div id="printinfo" style="position: fixed; bottom: 10px; right: 10px;"></div> -->
+
+
+      <!-- Menu -->
+    <!--   <nav class="menu fullscreen-modal" id="menu">
+        <section class="menu__actions">
+          <a class="menu__action menu-toggle">Resume</a>
+          <a class="menu__action">New Game</a>
+          <a href="/leaderboard" class="menu__action">Leaderboard</a>
+        </section>
+
+        <section class="container menu__games">
+          <h3 class="label">Other games</h3>
+        </section>
+
+        <button class="icon-button close menu-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <path fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M23.5,1.5l-22,22 M23.5,23.5l-22-22"/>
+          </svg>
+          <span class="icon-button__text">Close menu</span>
+        </button>
+      </nav> -->
+      <!-- /Menu -->
+
+      <!-- RulesView -->
+      <aside class="help fullscreen-modal" id="help">
+        <section class="help__rules">
+          <div class="container narrow">
+            <h2>Klondike</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum qui totam numquam iste enim odit architecto perspiciatis libero veritatis atque!</p>
+
+            <!-- <img src="img/previews/klondike.png" alt="Klondike distribution preview"> -->
+          </div>
+        </section>
+
+        <section class="help__shortcuts">
+          <div class="container narrow">
+            <h3 class="label">Shortcuts</h3>
+            <ul class="help__shortcuts__list">
+              <li class="help__shortcuts__item">
+                <span class="description">Undo</span>
+                <span>
+                  <span class="key">U</span>
+                  <span class="key">Z</span>
+                  <span class="key">Ctrl + Z</span>
+                </span>
+              </li>
+              <li class="help__shortcuts__item">
+                <span class="description">New Game</span>
+                <span class="key">N</span>
+              </li>
+             <!--  <li class="help__shortcuts__item">
+                <span class="description">Menu</span>
+                <span class="key">M</span>
+              </li> -->
+              <!-- <li class="help__shortcuts__item">
+                <span class="description">Go to homepage</span>
+                <span class="key">ESC</span>
+              </li> -->
+              <li class="help__shortcuts__item">
+                <span class="description">Help &amp; Rules</span>
+                <span class="key">H</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <button class="icon-button close help-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <path fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M23.5,1.5l-22,22 M23.5,23.5l-22-22"/>
+          </svg>
+          <span class="icon-button__text">Close help</span>
+        </button>
+      </aside>
+      <!-- /RulesView -->
+
+      <!-- Board -->
+      <main class="board" id="board" style="--width: 65vw; --columns: 7;">
+        <div class="row">
+          <div class="stack cycle" id="stack-0"></div>
+          <div class="stack horizontal show-3" id="stack-1"></div>
+          <div class="spacer fixed"></div>
+          <div class="stack" id="stack-2"></div>
+          <div class="stack" id="stack-3"></div>
+          <div class="stack" id="stack-4"></div>
+          <div class="stack" id="stack-5"></div>
+        </div>
+        <div class="row">
+          <div class="stack vertical" id="stack-6"></div>
+          <div class="stack vertical" id="stack-7"></div>
+          <div class="stack vertical" id="stack-8"></div>
+          <div class="stack vertical" id="stack-9"></div>
+          <div class="stack vertical" id="stack-10"></div>
+          <div class="stack vertical" id="stack-11"></div>
+          <div class="stack vertical" id="stack-12"></div>
+        </div>
+      </main>
+      <!-- /Board -->
+
+      <!-- Controls -->
+      <aside class="controls">
+        <!-- <button class="icon-button menu-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" d="M1.5,4.7h21 M1.5,12h12.6" stroke-linejoin="round" stroke-linecap="round" />
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" d="M1.5,19.3h21" stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <span class="icon-button__text">Open menu</span>
+        </button> -->
+
+        <button class="icon-button new-game">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" d="M12,1.7v20.7 M22.3,12H1.7" stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <span class="icon-button__text">Start new game</span>
+        </button>
+
+        <button class="icon-button" id="undo" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <path d="M10.2 39.6A26 26 0 1 1 54.4 55" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"></path>
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="5" d="M2 28.6l8 12 11.1-10" stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+          <span class="icon-button__text"></span>
+        </button>
+
+       <!--  <button class="icon-button" id="autocomplete" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="2" d="M1.5,13l7.2,7.2L22.5,5.8" stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <span class="icon-button__text"></span>
+        </button> -->
+
+
+        <!-- <button class="icon-button color-picker">
+          <span class="color-picker__current"></span>
+
+          <span class="color-picker__tooltip">Coming soonish</span>
+
+          <div class="color-picker__menu">
+
+          </div>
+        </button> -->
+
+
+        <button class="icon-button help-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="30" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"></circle>
+            <path d="M24 24.528C24 21.647 26.206 17 32.47 17S40 22.628 40 24.528s-.59 4.092-4.057 7.558C32.477 35.552 32 37.353 32 39v2" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"></path>
+            <circle cx="32" cy="47" r="2" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"></circle>
+          </svg>
+        </button>
+      </aside>
+      <!-- /Controls -->
+
+      <!-- Scoreboard -->
+      <aside class="modal scoreboard" id="scoreboard">
+        <h2>Congratulations, you won!</h2>
+
+        <h3 class="label">Game Score</h3>
+        <ul class="scoreboard__scores">
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Score:</span>
+            <span class="scoreboard__score__value" id="scoreboard-score"></span>
+          </li>
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Time Bonus:</span>
+            <span class="scoreboard__score__value" id="scoreboard-bonus"></span>
+          </li>
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Total Score:</span>
+            <span class="scoreboard__score__value" id="scoreboard-total"></span>
+          </li>
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Time:</span>
+            <span class="scoreboard__score__value" id="scoreboard-time"></span>
+          </li>
+        </ul>
+
+        <h3 class="label">Statistics</h3>
+        <ul class="scoreboard__scores">
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">High Score:</span>
+            <span class="scoreboard__score__value" id="scoreboard-highscore"></span>
+          </li>
+          <li class="scoreboard__score"></li>
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Games played:</span>
+            <span class="scoreboard__score__value" id="scoreboard-gamesCount"></span>
+          </li>
+          <li class="scoreboard__score">
+            <span class="scoreboard__score__label">Games won:</span>
+            <span class="scoreboard__score__value" id="scoreboard-gamesWonCount"></span>
+          </li>
+        </ul>
+
+        <div class="scoreboard__buttons">
+          <button class="button primary score-toggle new-game">Play again</button>
+        </div>
+      </aside>
+      <!-- /Scoreboard -->
+
+      <script type="text/javascript" src="js/klondike.js"></script>
+      <script type="text/javascript" src="js/sol.js"></script>
+    </div>
+  </body>
+</html>
